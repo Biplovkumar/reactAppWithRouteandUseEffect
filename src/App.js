@@ -1,36 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from "react";
-
-
-
+import Password from './component/Password';
+import {Router, BrowserRouter, Route, Switch , Redirect} from "react-router-dom";
+import Navigate from './component/Navigate';
+import Login from './component/Login';
+import Welcome  from './component/Welcome';
 const App = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
- checkData();
-  }, []);
-
-  const checkData = () => {
-    var cars = [40, 100, 1, 0, 5, 25, 10];
-    var valid = [] 
-    for(var i = 0;  i < cars.length; i++){
-     valid.push(cars[i])
-    }
-    console.log("checkVluee", valid)
-    setData(valid)
-   }
-  console.log("valid valueeee", data);
-
+ 
   return (
+
     <div className="App">
-      <div >
-        {
-          data.map((item, index) => {
-            return <p key={index} style={{ textAlign: "left" }}>{item}</p>
-          })
-        }
-      </div>
+    
+      <BrowserRouter>
+      <Switch>
+      <Route path="/Password" component={Password} />
+      <Route path="/Login" component={Login} />
+      <Route path="/Welcome" component={Welcome} /> 
+      <Route path="/" component={Navigate} />
+   
+      </Switch>
+      </BrowserRouter>
+      
+     
     </div>
   );
 }
