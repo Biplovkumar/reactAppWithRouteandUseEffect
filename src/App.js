@@ -1,23 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
+
+
+const App = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+ checkData();
+  }, []);
+
+  const checkData = () => {
+    var cars = [40, 100, 1, 0, 5, 25, 10];
+    var valid = [] 
+    for(var i = 0;  i < cars.length; i++){
+     valid.push(cars[i])
+    }
+    console.log("checkVluee", valid)
+    setData(valid)
+   }
+  console.log("valid valueeee", data);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div >
+        {
+          data.map((item, index) => {
+            return <p key={index} style={{ textAlign: "left" }}>{item}</p>
+          })
+        }
+      </div>
     </div>
   );
 }
