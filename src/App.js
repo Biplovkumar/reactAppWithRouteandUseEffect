@@ -7,7 +7,6 @@ import Navigate from './component/Navigate';
 import Login from './component/Login';
 import Welcome  from './component/Welcome';
 const App = () => {
- 
   return (
 
     <div className="App">
@@ -28,5 +27,3 @@ const App = () => {
 }
 
 export default App; 
-
-
